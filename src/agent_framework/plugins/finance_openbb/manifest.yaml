@@ -1,0 +1,29 @@
+plugin_id: agentspine-finance-openbb
+name: AgentSpine Finance OpenBB Adapter
+version: 0.1.0
+type: capability
+api_version: v1
+framework_version_range: ">=0.1.0,<0.2.0"
+entrypoint: agent_framework.plugins.finance_openbb
+contributes:
+  commands:
+    - finance.provider.openbb
+permissions:
+  network:
+    allowed_hosts:
+      - api.openbb.co
+dependencies:
+  - agentspine-finance-api
+settings_schema:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+      default: false
+    api_key_secret_ref:
+      type: string
+executor_profiles:
+  - read_only
+healthcheck:
+  kind: provider_ping
+migrations: []

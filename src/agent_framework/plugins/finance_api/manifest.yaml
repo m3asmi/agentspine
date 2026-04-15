@@ -1,0 +1,33 @@
+plugin_id: agentspine-finance-api
+name: AgentSpine Finance API
+version: 0.1.0
+type: capability
+api_version: v1
+framework_version_range: ">=0.1.0,<0.2.0"
+entrypoint: agent_framework.plugins.finance_api
+contributes:
+  capabilities:
+    - get_equity_profile
+    - get_company_fundamentals
+    - get_macro_series
+    - screen_assets
+    - compare_tickers
+    - build_market_brief
+    - generate_investment_research_draft
+  domain_packs:
+    - finance.pack
+permissions:
+  network:
+    allowed_hosts: []
+dependencies: []
+settings_schema:
+  type: object
+  properties:
+    default_provider_id:
+      type: string
+      default: openbb
+executor_profiles:
+  - read_only
+healthcheck:
+  kind: no_op
+migrations: []

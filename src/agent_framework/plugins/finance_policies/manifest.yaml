@@ -1,0 +1,23 @@
+plugin_id: agentspine-finance-policies
+name: AgentSpine Finance Policies
+version: 0.1.0
+type: policy
+api_version: v1
+framework_version_range: ">=0.1.0,<0.2.0"
+entrypoint: agent_framework.plugins.finance_policies
+contributes:
+  policies:
+    - finance.read_only.default
+permissions:
+  network:
+    allowed_hosts: []
+dependencies:
+  - agentspine-finance-api
+settings_schema:
+  type: object
+  properties: {}
+executor_profiles:
+  - read_only
+healthcheck:
+  kind: no_op
+migrations: []
