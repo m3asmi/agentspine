@@ -1,0 +1,51 @@
+plugin_id: example.plugin
+name: Example Plugin
+version: 1.0.0
+type: capability
+api_version: 1
+framework_version_range: ">=1.0.0,<2.0.0"
+description: Example plugin
+author: Your Name
+license: Private
+entrypoint: plugins.example:plugin
+
+dependencies: []
+optional_dependencies: []
+
+permissions:
+  filesystem:
+    read: []
+    write: []
+    append: []
+    edit: []
+    delete: []
+  shell:
+    profile: read_only
+  network:
+    allow: []
+  models:
+    local: []
+    remote: []
+  memory:
+    read: []
+    write: []
+  knowledge:
+    read: []
+    write: []
+
+contributes:
+  capabilities: []
+  commands: []
+
+settings_schema:
+  type: object
+  properties: {}
+
+executor_profiles:
+  - read_only
+
+healthcheck:
+  type: python
+  callable: plugins.example.health:check
+
+migrations: []
